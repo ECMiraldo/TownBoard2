@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "951811205909",
+    "project_id": "townboard2",
+    "storage_bucket": "townboard2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951811205909:android:957d315fb49f6c38ff571c",
+        "android_client_info": {
+          "package_name": "com.example.townboard2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951811205909-2ao6jgfs66mt5o7n6teij26j4m6bot1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCny6aWp5WlZ0fxK_S7GtgohAv9RE9dEtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951811205909-2ao6jgfs66mt5o7n6teij26j4m6bot1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
