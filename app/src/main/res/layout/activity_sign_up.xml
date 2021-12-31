@@ -12,15 +12,16 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/emailSignUpTextView"
+        tools:ignore="DuplicateClickableBoundsCheck" />
 
     <EditText
-        android:id="@+id/nameTextView"
+        android:id="@+id/nameSignUpTextView"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginTop="164dp"
@@ -38,9 +39,29 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="E-mail"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/nameSignUpTextView" />
+
+    <TextView
+        android:id="@+id/messageSignUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerButtonSignUp" />
+
+    <Button
+        android:id="@+id/registerButtonSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Registar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUpTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

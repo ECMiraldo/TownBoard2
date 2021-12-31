@@ -1,12 +1,11 @@
 package com.example.townboard2
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -18,6 +17,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var email : EditText
     private lateinit var password : EditText
     private lateinit var buttonSignUp : Button
+    private lateinit var message : TextView
+
 
     private lateinit var auth : FirebaseAuth
     private lateinit var database : DatabaseReference
@@ -30,10 +31,12 @@ class SignUpActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        name = findViewById(R.id.nameTextView)
+        name = findViewById(R.id.nameSignUpTextView)
         email = findViewById(R.id.emailSignUpTextView)
         password = findViewById(R.id.passwordSignUpTextView)
-        buttonSignUp = findViewById(R.id.buttonSignUp)
+        buttonSignUp = findViewById(R.id.registerButtonSignUp)
+        message = findViewById(R.id.messageSignUpTextView)
+
 
         buttonSignUp.setOnClickListener{
             val name = name.text.toString()
@@ -49,10 +52,11 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     addUserToDatabase(name, email, auth.currentUser?.uid!!)
-                    val Intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                     finish()
                     startActivity(intent)
                 } else {
+
                     Toast.makeText(
                         this@SignUpActivity,
                         "Something happened... We couldnt complete task",

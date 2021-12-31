@@ -34,7 +34,8 @@ class LoginActivity : AppCompatActivity() {
 
         buttonSignUp.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
-
+            finish()
+            startActivity(intent)
 
         }
 
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {  task ->
                 if(task.isSuccessful) {
-                    val Intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     finish()
                     startActivity(intent)
                 } else {
