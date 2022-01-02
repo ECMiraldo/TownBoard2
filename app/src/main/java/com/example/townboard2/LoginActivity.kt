@@ -43,7 +43,9 @@ class LoginActivity : AppCompatActivity() {
             val email = email.text.toString()
             val password = password.text.toString()
 
+            if (email.length >0 && password.length >0){
             login(email, password)
+            }
         }
     }
 
