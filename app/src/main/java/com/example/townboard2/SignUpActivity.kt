@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -43,7 +44,12 @@ class SignUpActivity : AppCompatActivity() {
             val email = email.text.toString()
             val password = password.text.toString()
 
-            signUp(name, email, password)
+            if(name.length >1 && email.length > 5 && password.length >5) {
+                signUp(name, email, password)
+            } else{
+                message.isVisible = true
+                message.text = "Por favor insira informação válida"
+            }
         }
     }
 
@@ -56,12 +62,7 @@ class SignUpActivity : AppCompatActivity() {
                     finish()
                     startActivity(intent)
                 } else {
-
-                    Toast.makeText(
-                        this@SignUpActivity,
-                        "Something happened... We couldnt complete task",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@SignUpActivity, "Insira informaão corretos", Toast.LENGTH_SHORT).show()
                 }
             }
     }
