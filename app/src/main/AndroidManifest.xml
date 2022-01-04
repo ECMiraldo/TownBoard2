@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TownBoard2">
         <activity
+            android:name=".events_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".addEventsAcitivity"
+            android:exported="false" />
+        <activity
             android:name=".activity_main_public"
             android:exported="false" />
         <activity
@@ -26,18 +32,16 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
