@@ -40,14 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         cityRecyclerView = findViewById(R.id.cityRecyclerView)
 
-
+        val city1 = City("vai logo")
+        db.collection("city").add(city1)
 
         //GETS CITY COLLECTION AND PUTS INTO CHAT LIST FOR THE RECYCLER VIEW
         db.collection("city")
             .get()
             .addOnSuccessListener {  result ->
                 for (document in result) {
-                    cityList.add(document.toObject<City>())
+                    cityList.add(document.toObject())
                 }
             }.addOnFailureListener(){
                     exception ->  Log.w(TAG, "Error getting documents.", exception)
