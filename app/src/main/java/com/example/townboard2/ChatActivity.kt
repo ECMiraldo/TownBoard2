@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
+
+//CREATEDATABASE
+
+
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var chatRecyclerView: RecyclerView
@@ -28,7 +32,7 @@ class ChatActivity : AppCompatActivity() {
 
         val intent = Intent()
         val name = intent.getStringExtra("name")
-        val receiverUID = intent.getStringExtra("uid")
+        val receiverUID = intent.getStringExtra("uID")
         val senderUID = FirebaseAuth.getInstance().currentUser?.uid
         database =  FirebaseDatabase.getInstance().getReference()
 
@@ -48,7 +52,12 @@ class ChatActivity : AppCompatActivity() {
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
         chatRecyclerView.adapter = messageAdapter
 
-        database.child("chats").child(senderRoom!!).
+        //EX; CHAT.PVZ.MESSAGES
+        //    CHAT.PVZ.ADDS
+        //    CHAT.PVZ.EVENTS
+        //    PVZ = INTENT.GETSTRINGEXTRA(ROOM)
+
+        database.child("chats").child(senderRoom!!).   //WHAT ROOM HE WANTS TO GO
         child("messages").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 

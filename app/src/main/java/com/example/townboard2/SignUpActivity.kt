@@ -41,6 +41,7 @@ class SignUpActivity : AppCompatActivity() {
 
         buttonSignUp.setOnClickListener{
             val name = name.text.toString()
+            //GET CHAT ROOM WHERE USER WANTS TO GO
             val email = email.text.toString()
             val password = password.text.toString()
 
