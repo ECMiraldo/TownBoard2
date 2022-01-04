@@ -9,4 +9,7 @@ class City {
     constructor(name : String){
         this.name = name
     }
+
+
+
 }

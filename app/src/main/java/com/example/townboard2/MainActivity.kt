@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -32,19 +33,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
         auth = FirebaseAuth.getInstance()
-        cityList = ArrayList()
+        cityList = arrayListOf<City>()
 
         cityRecyclerView = findViewById(R.id.cityRecyclerView)
+        adapter = CityAdapter(this, cityList)
 
-        val city1 = City("vai logo")
-        db.collection("city").add(city1)
 
         //GETS CITY COLLECTION AND PUTS INTO CHAT LIST FOR THE RECYCLER VIEW
-        db.collection("city")
+       db.collection("city")
             .get()
             .addOnSuccessListener {  result ->
                 for (document in result) {
@@ -54,13 +51,30 @@ class MainActivity : AppCompatActivity() {
                     exception ->  Log.w(TAG, "Error getting documents.", exception)
             }
 
-        adapter = CityAdapter(this, cityList)
+
+       /* db.collection("city")
+            .get()
+            .addOnCompleteListener{
+                val result :StringBuffer = StringBuffer()
+                if (it.isSuccessful)
+                {
+                    for (document in it.result!!){
+                        result.append(document.data.getValue("name")).append(" ").append("\n")
+
+                    }
+                }
+            }
+*/
+
         cityRecyclerView.layoutManager = LinearLayoutManager(this)
         cityRecyclerView.adapter = adapter
 
 
 
     }
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
