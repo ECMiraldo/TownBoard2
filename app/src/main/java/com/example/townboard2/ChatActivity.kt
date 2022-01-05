@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.townboard2.databinding.ActivityChatBinding
+import com.example.townboard2.databinding.ActivityLoginBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -21,12 +23,9 @@ import com.google.firebase.ktx.Firebase
 
 class ChatActivity : AppCompatActivity() {
 
-    private lateinit var chatRecyclerView: RecyclerView
-    private lateinit var messageBox : EditText
-    private lateinit var sendButton : ImageView
+    private lateinit var binding: ActivityChatBinding
     private lateinit var messageAdapter : MessageAdapter
     private lateinit var messageList : ArrayList<Message>
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var auth : FirebaseAuth
     val db = Firebase.firestore
 
@@ -34,23 +33,17 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
+        binding = ActivityChatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val intent = intent
         val cityName = intent.getStringExtra("cityName")
         auth = FirebaseAuth.getInstance()
-        val senderUID : String = auth.currentUser?.uid.toString()
-
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
-        chatRecyclerView = findViewById(R.id.chatRecyclerView)
-        messageBox = findViewById(R.id.messageBox)
-        sendButton = findViewById(R.id.sendButton)
         messageList = arrayListOf<Message>()
 
         messageAdapter = MessageAdapter(this, messageList)
-        chatRecyclerView.layoutManager = LinearLayoutManager(this)
-        chatRecyclerView.adapter = messageAdapter
-
-
-        //messageList.add(Message("ola", senderUID))
+        binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.chatRecyclerView.adapter = messageAdapter
 
         //EX; CHAT.PVZ.MESSAGES
         //    CHAT.PVZ.ADDS
@@ -72,42 +65,17 @@ class ChatActivity : AppCompatActivity() {
 
 
 
-        sendButton.setOnClickListener {
-            val message = messageBox.text.toString()
+        binding.sendButton.setOnClickListener {
+            val message = binding.messageBox.text.toString()
             val messageObj = Message(message, auth.currentUser?.uid.toString())
             db.collection("city").document(cityName!!)
                 .collection("messages").add(messageObj)
             messageList.add(messageObj)
             messageAdapter.notifyDataSetChanged()
+            binding.messageBox.setText("")
         }
-        messageBox.setText("")
 
 
 
     }
-
-
-//   child("city").child(senderRoom!!).   //WHAT ROOM HE WANTS TO GO
-//   child("messages").addValueEventListener(object : ValueEventListener {
-//       override fun onDataChange(snapshot: DataSnapshot) {
-
-//           messageList.clear()
-
-//           for (postSnapshot in snapshot.children) {
-//               val message = postSnapshot.getValue(Message::class.java)
-//               messageList.add(message!!)
-//           }
-//           messageAdapter.notifyDataSetChanged()
-//       }
-
-//       override fun onCancelled(error: DatabaseError) {
-
-//       }
-
-
-//   })
-
-
-
-
 }
