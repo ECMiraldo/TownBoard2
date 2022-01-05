@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         cityList = arrayListOf<City>()
 
+
         cityRecyclerView = findViewById(R.id.cityRecyclerView)
         adapter = CityAdapter(this, cityList)
 
@@ -44,8 +45,14 @@ class MainActivity : AppCompatActivity() {
        db.collection("city")
             .get()
             .addOnSuccessListener {  result ->
-                for (document in result) {
-                    cityList.add(document.toObject())
+                for (document in result.documents) {
+                    document.data?.let {
+                        (it["name"] as String?)?.let {
+                            cityList.add(City(it))
+                        }
+                    }
+                adapter.notifyDataSetChanged()
+
                 }
             }.addOnFailureListener(){
                     exception ->  Log.w(TAG, "Error getting documents.", exception)
