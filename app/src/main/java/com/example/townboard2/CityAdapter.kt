@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.townboard2.ui.chat.ChatFragment
 
 class CityAdapter(val context : Context, val cityList : ArrayList<City>) :
     Adapter<CityAdapter.CityViewHolder>() {
@@ -25,7 +27,7 @@ class CityAdapter(val context : Context, val cityList : ArrayList<City>) :
         holder.cityName.text = currentCity.name
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, ChatActivity::class.java)
+            val intent = Intent(context, CityActivity::class.java)
             intent.putExtra("cityName", currentCity.name)
             //intent.putExtra("room", )  ///GET CHAT ROOM FROM SIGNUP
             context.startActivity(intent)

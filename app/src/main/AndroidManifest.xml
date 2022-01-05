@@ -16,9 +16,7 @@
         <activity
             android:name=".events_Activity"
             android:exported="false" />
-        <activity
-            android:name=".addEventsAcitivity"
-            android:exported="false" />
+
         <activity
             android:name=".activity_main_public"
             android:exported="false" />
@@ -28,9 +26,6 @@
         <activity
             android:name=".addPublicActivity"
             android:exported="false" />
-        <activity
-            android:name=".ChatActivity"
-            android:exported="true" />
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />
