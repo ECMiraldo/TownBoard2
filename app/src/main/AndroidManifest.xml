@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TownBoard2">
         <activity
+            android:name=".CityActivity"
+            android:exported="false"
+            android:label="@string/title_activity_city" />
+        <activity
             android:name=".events_Activity"
             android:exported="false" />
         <activity

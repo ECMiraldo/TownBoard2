@@ -11,6 +11,8 @@ import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -22,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private lateinit var auth : FirebaseAuth
-    private lateinit var database : DatabaseReference
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,9 +71,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun addUserToDatabase(name : String, email : String, uid : String) {
-        database = FirebaseDatabase.getInstance().getReference()
-
-        database.child("user").child(uid).setValue(User(name,email,uid))
+        db.collection("user").add(User(name, email, uid))
     }
 
 

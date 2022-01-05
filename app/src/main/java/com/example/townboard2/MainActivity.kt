@@ -20,7 +20,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.firestore.ktx.toObjects as toObjects1
 
 
-//tools -> firebase -> initialize realtime database
 class MainActivity : AppCompatActivity() {
 
     private lateinit var cityRecyclerView : RecyclerView
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         cityList = arrayListOf<City>()
-
 
         cityRecyclerView = findViewById(R.id.cityRecyclerView)
         adapter = CityAdapter(this, cityList)
@@ -57,21 +55,6 @@ class MainActivity : AppCompatActivity() {
             }.addOnFailureListener(){
                     exception ->  Log.w(TAG, "Error getting documents.", exception)
             }
-
-
-       /* db.collection("city")
-            .get()
-            .addOnCompleteListener{
-                val result :StringBuffer = StringBuffer()
-                if (it.isSuccessful)
-                {
-                    for (document in it.result!!){
-                        result.append(document.data.getValue("name")).append(" ").append("\n")
-
-                    }
-                }
-            }
-*/
 
         cityRecyclerView.layoutManager = LinearLayoutManager(this)
         cityRecyclerView.adapter = adapter

@@ -1,13 +1,16 @@
 package com.example.townboard2
 
+import java.time.Instant
+import java.util.*
+
 class Message {
     var message : String? = null
-    var senderID : String? = null
+    var senderUID : String? = null
 
     constructor(){}
 
-    constructor(message : String, senderID : String){
+    constructor(message : String, senderUID : String){
         this.message = message
-        this.senderID = senderID
+        this.senderUID = senderUID
     }
 }

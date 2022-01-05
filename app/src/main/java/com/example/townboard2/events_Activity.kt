@@ -32,7 +32,7 @@ class events_Activity : AppCompatActivity() {
         buttonAdd.setOnClickListener {
 
 
-            val intent = Intent(this@events_Activity, addEventsActivity::class.java)
+            val intent = Intent(this@events_Activity, AddEventsActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE_ADD_PLANT)
         }
     }

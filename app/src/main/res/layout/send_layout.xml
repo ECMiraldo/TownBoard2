@@ -14,9 +14,9 @@
         <TextView
             android:id="@+id/SentMessage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="This is sent message"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="10dp"
             android:textSize="18sp"/>
 
