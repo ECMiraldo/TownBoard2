@@ -120,7 +120,7 @@ override fun onDestroyView() {
         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
         eventPhoto.setImageBitmap(bitmap)
       }.addOnFailureListener {
-
+        //TODO: CREATE A NEW IMAGE AND PUT IT AS DEFAULT HERE
       }
 
       return rootView
