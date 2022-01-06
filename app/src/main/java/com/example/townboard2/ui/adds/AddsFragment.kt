@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.townboard2.Add
-import com.example.townboard2.AddAdapter
-import com.example.townboard2.Event
 import com.example.townboard2.databinding.FragmentAddsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore

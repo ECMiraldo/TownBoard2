@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.ui.chat
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.townboard2.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 class MessageAdapter(val context : Context?, val messageList : ArrayList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,10 +18,10 @@ class MessageAdapter(val context : Context?, val messageList : ArrayList<Message
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == 1) {
-            val view : View = LayoutInflater.from(context).inflate(R.layout.receive_layout, parent, false)
+            val view : View = LayoutInflater.from(context).inflate(R.layout.message_receive_layout, parent, false)
             return ReceivedViewHolder(view)
         } else {
-            val view : View = LayoutInflater.from(context).inflate(R.layout.send_layout, parent, false)
+            val view : View = LayoutInflater.from(context).inflate(R.layout.message_send_layout, parent, false)
             return SentViewHolder(view)
         }
     }

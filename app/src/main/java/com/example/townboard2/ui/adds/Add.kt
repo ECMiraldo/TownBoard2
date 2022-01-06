@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.ui.adds
 
 import android.widget.ImageView
 import java.io.FileDescriptor

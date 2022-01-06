@@ -1,7 +1,6 @@
 package com.example.townboard2.ui.chat
 
 import android.content.ContentValues
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.townboard2.Message
-import com.example.townboard2.MessageAdapter
 import com.example.townboard2.databinding.FragmentChatBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore

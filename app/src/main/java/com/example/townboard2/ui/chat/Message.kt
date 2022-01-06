@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.ui.chat
 
 import java.time.Instant
 import java.util.*

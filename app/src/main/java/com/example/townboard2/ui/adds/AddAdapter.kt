@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.ui.adds
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.townboard2.R
 import com.google.firebase.storage.FirebaseStorage
 
 class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : RecyclerView.Adapter<AddAdapter.AddViewHolder>() {
@@ -20,8 +21,8 @@ class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : Recycler
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddViewHolder {
-        val view : View = LayoutInflater.from(context).inflate(R.layout.adds_card_view, parent, false)
-        return AddAdapter.AddViewHolder(view)
+        val view : View = LayoutInflater.from(context).inflate(R.layout.row_adds, parent, false)
+        return AddViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: AddViewHolder, position: Int) {

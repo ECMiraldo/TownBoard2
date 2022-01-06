@@ -11,13 +11,6 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.townboard2.Event
-import com.example.townboard2.Message
-import com.example.townboard2.MessageAdapter
 import com.example.townboard2.R
 import com.example.townboard2.databinding.FragmentEventsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -83,7 +76,7 @@ override fun onDestroyView() {
     }
 
 
-  inner class EventAdapter : BaseAdapter(){
+  inner class EventAdapter() : BaseAdapter(){
     override fun getCount(): Int {
       return eventList.count()
     }
