@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.adds.AddsFragment" >
+    tools:context=".ui.adds.AddsFragment"
+    android:background="@drawable/gradient_background">
 
     <ListView
         android:layout_width="409dp"
