@@ -23,7 +23,6 @@ class ChatFragment : Fragment() {
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var auth: FirebaseAuth
-    private lateinit var mContext: Context
     val db = Firebase.firestore
 
 
@@ -41,7 +40,8 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cityName = arguments?.getBundle("cityName").toString()
+        val cityName = getActivity()?.getIntent()?.getExtras()?.getString("cityName");
+
         auth = FirebaseAuth.getInstance()
         messageList = arrayListOf<Message>()
 
@@ -49,6 +49,7 @@ class ChatFragment : Fragment() {
         _binding?.chatRecyclerView?.layoutManager = LinearLayoutManager(context)
         _binding?.chatRecyclerView?.adapter = messageAdapter
 
+        //reads chat messages from database
         db.collection("city").document(cityName!!)
             .collection("messages").get()
             .addOnSuccessListener { result ->
