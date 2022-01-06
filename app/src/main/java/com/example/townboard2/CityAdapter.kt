@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView.*
-import com.example.townboard2.ui.chat.ChatFragment
 
 class CityAdapter(val context : Context, val cityList : ArrayList<City>) :
     Adapter<CityAdapter.CityViewHolder>() {
