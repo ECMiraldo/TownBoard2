@@ -105,6 +105,7 @@ override fun onDestroyView() {
       val eventTime = rootView.findViewById<TextView>(R.id.horaEvent)
       val eventPlace = rootView.findViewById<TextView>(R.id.localEvent)
       eventDescription.text = eventList[position].description
+      eventName.text = eventList[position].name
       eventDate.text = eventList[position].data
       eventTime.text = eventList[position].hora
       eventPlace.text = eventList[position].local
