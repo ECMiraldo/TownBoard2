@@ -11,6 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.townboard2.R
 import com.example.townboard2.databinding.FragmentEventsBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -63,9 +64,17 @@ class EventsFragment : Fragment() {
         Log.w(ContentValues.TAG, "Error getting documents.", exception)
       }
 
+    binding.buttonAddEvent.setOnClickListener {
+      findNavController().navigate(R.id.action_navigation_event_to_AddEventFragment)
+    }
+
 
   }
 
+  override fun onResume() {
+    super.onResume()
+    eventAdapter.notifyDataSetChanged()
+  }
 
 
 
@@ -112,6 +121,7 @@ override fun onDestroyView() {
       photoImagesRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
         eventPhoto.setImageBitmap(bitmap)
+
       }.addOnFailureListener {
         //TODO: CREATE A NEW IMAGE AND PUT IT AS DEFAULT HERE
       }
