@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.storage.FirebaseStorage
 
-class AddAdapter(val context : Context, val addList : ArrayList<Add> ) : RecyclerView.Adapter<AddAdapter.AddViewHolder>() {
+class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : RecyclerView.Adapter<AddAdapter.AddViewHolder>() {
 
 
 
