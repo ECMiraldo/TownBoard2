@@ -26,9 +26,8 @@ class AddEventFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var rootview = inflater.inflate(R.layout.fragment_add_event, container, false)
-
-        return rootview
+        _binding = FragmentAddEventBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,7 +37,7 @@ class AddEventFragment : Fragment() {
 
         _binding?.buttonDone?.setOnClickListener(){
             val event = hashMapOf(
-                "titulo" to binding?.nameEventsEdit?.text.toString(),
+                "name" to _binding?.nameEventsEdit?.text.toString(),
                 "hora"  to _binding?.horaEventEdit?.text.toString(),
                 "data"  to _binding?.dataEventEdit?.text.toString(),
                 "local" to _binding?.localEventEdit?.text.toString(),
