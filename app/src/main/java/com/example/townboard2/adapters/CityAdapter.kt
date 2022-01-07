@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.townboard2.CityActivity
+import com.example.townboard2.R
+import com.example.townboard2.datatypes.City
 
 class CityAdapter(val context : Context, val cityList : ArrayList<City>, val userName: String) :
     Adapter<CityAdapter.CityViewHolder>() {
@@ -17,7 +19,7 @@ class CityAdapter(val context : Context, val cityList : ArrayList<City>, val use
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
-        val view : View = LayoutInflater.from(context).inflate(R.layout.city_layout, parent, false)
+        val view : View = LayoutInflater.from(context).inflate(R.layout.row_city, parent, false)
         return CityViewHolder(view)
     }
 

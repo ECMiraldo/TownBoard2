@@ -1,4 +1,4 @@
-package com.example.townboard2
+package com.example.townboard2.datatypes
 
 class User {
     var name : String? = null

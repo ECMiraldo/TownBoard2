@@ -19,7 +19,23 @@
         android:icon="@drawable/ic_baseline_dashboard_24"
         android:title="Adds"
         android:label="@string/title_adds"
-        tools:layout="@layout/fragment_adds" />
+        tools:layout="@layout/fragment_adds">
+    <action
+        android:id="@+id/action_navigation_event_to_AddAddFragment"
+        app:destination="@id/nav_add_add"/>
+    <action
+        android:id="@+id/action_navigation_event_to_AddDetailFragment"
+        app:destination="@id/nav_add_detail"/>
+    </fragment>
+
+    <fragment
+        android:id="@id/nav_add_add"
+        android:name="com.example.townboard2.ui.adds.AddAddFragment"
+        tools:layout="@layout/fragment_add_add"/>
+    <fragment
+        android:id="@+id/nav_add_detail"
+        android:name="com.example.townboard2.ui.adds.AddDetailFragment"
+        tools:layout="@layout/fragment_add_detail"/>
 
     <fragment
         android:id="@+id/nav_events"
@@ -27,5 +43,20 @@
         android:icon="@drawable/ic_baseline_event_24"
         android:title="Events"
         android:label="@string/title_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_navigation_event_to_AddEventFragment"
+            app:destination="@id/nav_add_event"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_event"
+        android:name="com.example.townboard2.ui.events.AddEventFragment"
+        tools:layout="@layout/fragment_add_event" />
+
+
+
+
+
+
 </navigation>
