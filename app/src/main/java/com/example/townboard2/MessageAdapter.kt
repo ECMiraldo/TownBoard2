@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.ArrayList
+
+
 
 class MessageAdapter(val context : Context?, val messageList : ArrayList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -31,14 +35,22 @@ class MessageAdapter(val context : Context?, val messageList : ArrayList<Message
         val currentMessage = messageList[position]
         if (holder.javaClass == SentViewHolder::class.java){
             //do stuff for sent view holder
+
             val viewHolder = holder as SentViewHolder
             holder.sentMessage.text = currentMessage.message
+            holder.dataMessage.text = currentMessage.date.toString()
+            holder.horaMessage.text = currentMessage.hour.toString()
+
+
 
 
         } else {
             //do stuff for receive view holder
             val viewHolder = holder as ReceivedViewHolder
             holder.receivedMessage.text = currentMessage.message
+            holder.pessoaEnviou.text = currentMessage.senderName
+            holder.dataMessageReceived.text = currentMessage.date
+            holder.horaMessageReceived.text = currentMessage.hour.toString()
         }
 
     }
@@ -57,10 +69,16 @@ class MessageAdapter(val context : Context?, val messageList : ArrayList<Message
     }
 
     class SentViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        val sentMessage = itemView.findViewById<TextView>(R.id.SentMessage)
+        val sentMessage = itemView.findViewById<TextView>(R.id.sendMessage)
+        val dataMessage = itemView.findViewById<TextView>(R.id.dataMessage)
+        val horaMessage = itemView.findViewById<TextView>(R.id.horaMessage)
     }
     class ReceivedViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        val receivedMessage = itemView.findViewById<TextView>(R.id.ReceivedMessage)
+        val receivedMessage = itemView.findViewById<TextView>(R.id.messageText)
+        val pessoaEnviou = itemView.findViewById<TextView>(R.id.userMessage)
+        val dataMessageReceived = itemView.findViewById<TextView>(R.id.dataMessage)
+        val horaMessageReceived =itemView.findViewById<TextView>(R.id.horaMessage)
+
     }
 
 

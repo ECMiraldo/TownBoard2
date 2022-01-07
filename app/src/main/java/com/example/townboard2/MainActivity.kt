@@ -27,19 +27,32 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cityList : ArrayList<City>
     private lateinit var adapter : CityAdapter
     private lateinit var auth : FirebaseAuth
+    private lateinit var userName : String
+
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+       // val userName = intent.getStringExtra("userName")
 
         auth = FirebaseAuth.getInstance()
         cityList = arrayListOf<City>()
 
         cityRecyclerView = findViewById(R.id.cityRecyclerView)
-        adapter = CityAdapter(this, cityList)
+        userName = "ZE" //just to avoid errors until username is fixed
 
 
+
+        db.collection("user").get().addOnSuccessListener {
+                result ->
+            for (document in result.documents) {
+                if (document.get("uid") == auth.currentUser?.uid)
+                    userName = document.get("name").toString()
+            }
+        }
+
+        adapter = CityAdapter(this, cityList, userName)
         //GETS CITY COLLECTION AND PUTS INTO CHAT LIST FOR THE RECYCLER VIEW
        db.collection("city")
             .get()

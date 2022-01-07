@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
@@ -15,8 +16,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var password : EditText
     private lateinit var buttonLogIn : Button
     private lateinit var buttonSignUp : Button
-
+    private  var userName : String? = null
     private lateinit var auth : FirebaseAuth
+
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
         password = findViewById(R.id.passwordTextView)
         buttonLogIn = findViewById(R.id.buttonLogIn)
         buttonSignUp = findViewById(R.id.buttonSignUp)
+
+
 
 
         buttonSignUp.setOnClickListener{
@@ -54,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {  task ->
                 if(task.isSuccessful) {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.putExtra("userName", userName)
                     finish()
                     startActivity(intent)
                 } else {

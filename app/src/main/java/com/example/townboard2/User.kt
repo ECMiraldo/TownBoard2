@@ -13,4 +13,8 @@ class User {
         this.uID = uID
     }
 
+    fun getUserName(): String? {
+       return name
+    }
+
 }
