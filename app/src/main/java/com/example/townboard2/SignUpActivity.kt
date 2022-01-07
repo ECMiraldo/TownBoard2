@@ -37,7 +37,7 @@ class SignUpActivity : AppCompatActivity() {
         email = findViewById(R.id.emailSignUpTextView)
         password = findViewById(R.id.passwordSignUpTextView)
         buttonSignUp = findViewById(R.id.registerButtonSignUp)
-        message = findViewById(R.id.messageSignUpTextView)
+        //message = findViewById(R.id.messageSignUpTextView)
 
 
         buttonSignUp.setOnClickListener{

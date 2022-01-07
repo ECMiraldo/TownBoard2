@@ -84,9 +84,7 @@
         android:layout_height="88dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="152dp"
-
         android:text="𝕿𝖔𝖜𝖓 𝕭𝖔𝖆𝖗𝖉"
-
         android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/emailTextView"
