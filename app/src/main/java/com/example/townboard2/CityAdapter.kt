@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView.*
 
-class CityAdapter(val context : Context, val cityList : ArrayList<City>) :
+class CityAdapter(val context : Context, val cityList : ArrayList<City>, val userName: String) :
     Adapter<CityAdapter.CityViewHolder>() {
 
     class CityViewHolder(itemView: View) : ViewHolder(itemView) {
