@@ -3,6 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/drawable/gradient_background.xml" value="0.21614583333333334" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/drawable/gradient_background_text.xml" value="0.21614583333333334" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/activity_city.xml" value="0.18981481481481483" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/activity_login.xml" value="0.18981481481481483" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/activity_main.xml" value="0.18981481481481483" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/activity_sign_up.xml" value="0.18981481481481483" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_add_add.xml" value="0.22" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_add_detail.xml" value="0.2" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_add_event.xml" value="0.16666666666666666" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_adds.xml" value="0.2" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_chat.xml" value="0.2" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/fragment_events.xml" value="0.22" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/message_receive_layout.xml" value="0.22" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/message_send_layout.xml" value="0.2" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/row_adds.xml" value="0.16510416666666666" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/row_city.xml" value="0.1" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/row_events.xml" value="0.2" />
+        <entry key="..\:/Universidade/Computacao_Movel/TownBoard2/app/src/main/res/layout/row_public.xml" value="0.2" />
         <entry key="..\:/Universidades/2ano_1Semestre/Computacao_Movel/TownBoard2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3171875" />
         <entry key="..\:/Universidades/2ano_1Semestre/Computacao_Movel/TownBoard2/app/src/main/res/drawable/gradient_background.xml" value="0.3125" />
         <entry key="..\:/Universidades/2ano_1Semestre/Computacao_Movel/TownBoard2/app/src/main/res/drawable/gradient_background_text.xml" value="0.3171875" />
@@ -86,29 +105,8 @@
         <entry key="..\:/Users/tester/Desktop/EDJD/2Ano_1semestre/Computacao_Movel/Projetos/TownBoard2/app/src/main/res/layout/activity_main.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/tester/Desktop/EDJD/2Ano_1semestre/Computacao_Movel/Projetos/TownBoard2/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_add_public.xml" value="0.24479166666666666" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_city.xml" value="0.1953125" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_events.xml" value="0.16510416666666666" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_login.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_main_public.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_public_detail.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/activity_sign_up.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/add_events_acitivity.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/chat_me.xml" value="0.2552083333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/chat_outro.xml" value="0.2552083333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/city_layout.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/fragment_adds.xml" value="0.16510416666666666" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/fragment_chat.xml" value="0.33" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/fragment_events.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/item_chat.xml" value="0.2552083333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/receive_layout.xml" value="0.5" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/row_events.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/row_public.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/send_layout.xml" value="0.25" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/teste_activity_chat.xml" value="0.2552083333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/layout/user_layout.xml" value="0.20364583333333333" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/menu/bottom_navigation.xml" value="0.16510416666666666" />
-        <entry key="..\:/Users/yash/StudioProjects/TownBoard2/app/src/main/res/menu/menu.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16111111111111112" />
