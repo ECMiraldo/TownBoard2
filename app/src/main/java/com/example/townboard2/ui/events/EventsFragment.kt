@@ -69,6 +69,8 @@ class EventsFragment : Fragment() {
     }
 
 
+
+
   }
 
   override fun onResume() {

@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.townboard2.R
+import com.example.townboard2.databinding.FragmentAddDetailBinding
+import com.example.townboard2.databinding.FragmentAddsBinding
 
 class AddDetailFragment : Fragment() {
 
+    private var _binding: FragmentAddDetailBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,9 +20,18 @@ class AddDetailFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val rootview = inflater.inflate(R.layout.fragment_add_detail, container, false)
-        return rootview
+        _binding = FragmentAddDetailBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        return root
     }
+
+    //get stuff from intent? or from database?
+    //just set text and do popbackstack on navigation
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.addsdescriptionDetail
+    }
+
 
 }

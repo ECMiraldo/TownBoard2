@@ -8,87 +8,67 @@
     android:background="@drawable/gradient_background">
 
 
-    <EditText
-        android:id="@+id/editName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="192dp"
-        android:hint="Nome da empresa"
-        android:textColor="@color/black"
+    <ImageView
+        android:id="@+id/addAddImageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/minieditDescription"
+        android:id="@+id/addAddEditTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="36dp"
-        android:hint="Uma breve descricao"
+        android:layout_marginTop="20dp"
+        android:hint="Titulo"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/editName"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="@+id/editName"
-        app:layout_constraintTop_toBottomOf="@+id/editName" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/addAddImageView" />
+
 
     <EditText
-        android:id="@+id/editDescription"
+        android:id="@+id/addAddEditDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/minieditDescription"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="32dp"
-        android:hint="Uma descricao mais detalhada"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:hint="Descrição"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/minieditDescription"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/minieditDescription"
-        app:layout_constraintTop_toBottomOf="@+id/minieditDescription" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addAddEditLocal" />
 
     <Button
-        android:id="@+id/buttonDone"
+        android:id="@+id/addAddButtonDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="24dp"
+    <EditText
+        android:id="@+id/addAddEditLocal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editName"
-        android:layout_alignBottom="@+id/editName"
-        android:layout_marginEnd="4dp"
-        android:layout_toStartOf="@+id/editName"
-        android:src="@drawable/ic_baseline_store_24"
-        app:layout_constraintBottom_toBottomOf="@+id/editName"
-        app:layout_constraintEnd_toStartOf="@+id/editName"
-        app:layout_constraintTop_toTopOf="@+id/editName"
-        app:layout_constraintVertical_bias="0.666" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="24dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/minieditDescription"
-        android:layout_alignBottom="@+id/minieditDescription"
-        android:layout_marginEnd="4dp"
-        android:layout_toStartOf="@+id/minieditDescription"
-        android:src="@drawable/ic_baseline_forum_24"
-        app:layout_constraintBottom_toBottomOf="@+id/minieditDescription"
-        app:layout_constraintEnd_toStartOf="@+id/minieditDescription"
-        app:layout_constraintTop_toTopOf="@+id/minieditDescription"
-        app:layout_constraintVertical_bias="0.476" />
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Local"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addAddEditTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

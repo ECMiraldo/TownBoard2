@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation.createNavigateOnClickListener
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.townboard2.CityActivity
 import com.example.townboard2.R
+import com.example.townboard2.ui.events.EventsFragment
 import com.google.firebase.storage.FirebaseStorage
 
 class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : RecyclerView.Adapter<AddAdapter.AddViewHolder>() {
@@ -27,8 +32,7 @@ class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : Recycler
 
     override fun onBindViewHolder(holder: AddViewHolder, position: Int) {
         val add = addList[position]
-        holder.add.findViewById<TextView>(R.id.addTextViewTitle).text = add.description
-
+        holder.add.findViewById<TextView>(R.id.addTextViewTitle).text = add.name
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
         val photoName = addList[position].photoName
