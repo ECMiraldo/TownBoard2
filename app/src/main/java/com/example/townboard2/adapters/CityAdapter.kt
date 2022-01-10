@@ -11,7 +11,7 @@ import com.example.townboard2.CityActivity
 import com.example.townboard2.R
 import com.example.townboard2.datatypes.City
 
-class CityAdapter(val context : Context, val cityList : ArrayList<City>, val userName: String) :
+class CityAdapter(val context : Context, val cityList : ArrayList<City>) :
     Adapter<CityAdapter.CityViewHolder>() {
 
     class CityViewHolder(itemView: View) : ViewHolder(itemView) {
