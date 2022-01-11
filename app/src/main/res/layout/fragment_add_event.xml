@@ -95,6 +95,18 @@
             android:layout_marginBottom="18dp"
             android:text="Done" />
 
+        <ImageView
+            android:id="@+id/addEventImageView"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="240dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:focusable="true" />
+
 
     </RelativeLayout>
 

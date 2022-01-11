@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.townboard2">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo_app"
@@ -13,19 +20,6 @@
             android:name=".CityActivity"
             android:exported="false"
             android:label="@string/title_activity_city" />
-        <activity
-            android:name=".events_Activity"
-            android:exported="false" />
-
-        <activity
-            android:name=".activity_main_public"
-            android:exported="false" />
-        <activity
-            android:name=".PublicDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".addPublicActivity"
-            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />

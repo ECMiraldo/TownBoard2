@@ -35,7 +35,17 @@
     <fragment
         android:id="@+id/nav_add_detail"
         android:name="com.example.townboard2.ui.adds.AddDetailFragment"
-        tools:layout="@layout/fragment_add_detail"/>
+        tools:layout="@layout/fragment_add_detail">
+        <argument
+            android:name="descricao"
+            app:argType="string" />
+        <argument
+            android:name="photoRef"
+            app:argType="string" />
+        <argument
+            android:name="local"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_events"
