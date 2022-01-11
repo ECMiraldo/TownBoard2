@@ -59,7 +59,6 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {  task ->
                 if(task.isSuccessful) {
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    intent.putExtra("userName", userName)
                     finish()
                     startActivity(intent)
                 } else {

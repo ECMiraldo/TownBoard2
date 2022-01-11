@@ -28,6 +28,7 @@ class ChatFragment : Fragment() {
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var auth: FirebaseAuth
+    private lateinit var userName: String
        val db = Firebase.firestore
 
 
@@ -45,7 +46,18 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val cityName = getActivity()?.getIntent()?.getExtras()?.getString("cityName");
-        val userName = getActivity()?.getIntent()?.getExtras()?.getString("userName");
+
+
+        //get userName
+        db.collection("user").get().addOnSuccessListener {
+                result ->
+            for (document in result.documents) {
+                if (document.get("uid") == auth.currentUser?.uid)
+                    userName = document.get("name").toString()
+
+            }
+        }
+
 
 
         auth = FirebaseAuth.getInstance()
@@ -79,7 +91,7 @@ class ChatFragment : Fragment() {
         _binding?.sendButton?.setOnClickListener {
             val message = _binding?.messageBox?.text.toString()
 
-            val messageObj = Message(message, auth.currentUser?.uid.toString(), userName.toString(), getCurrentDate(),getCurrentHour())
+            val messageObj = Message(message, auth.currentUser?.uid.toString(), userName, getCurrentDate(),getCurrentHour())
             db.collection("city").document(cityName!!)
                 .collection("messages").add(messageObj)
             messageList.add(messageObj)
@@ -114,8 +126,6 @@ class ChatFragment : Fragment() {
     fun formatDate(date: String):String{
 
         val data = date.substring(0, Math.min(date.length, 10));
-
-
         return data
     }
 
