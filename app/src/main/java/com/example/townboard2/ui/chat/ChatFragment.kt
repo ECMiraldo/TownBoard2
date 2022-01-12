@@ -81,6 +81,7 @@ class ChatFragment : Fragment() {
                     val dateformated = formatDate(messageDate!!)
                     messageList.add(Message(message!!, messageUID!!, messageSender!!, dateformated!! ,messageHour!! ))
                 }
+                _binding?.chatRecyclerView?.scrollToPosition(messageList.size -1)
                 messageAdapter.notifyDataSetChanged()
             }.addOnFailureListener() { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)

@@ -41,34 +41,33 @@ class AddEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val cityName = getActivity()?.getIntent()?.getExtras()?.getString("cityName");
-        val photoName = UUID.randomUUID().toString() + ".jpg"
+
 
         binding.addEventImageView.setOnClickListener {
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                    val storage = FirebaseStorage.getInstance()
-                    val storageRef = storage.reference
-                    val baos = ByteArrayOutputStream()
-                    val photoImagesRef = storageRef.child("eventPhotos/${photoName}")
-                    bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-                    val data = baos.toByteArray()
 
-                    var uploadTask = photoImagesRef.putBytes(data)
-                    uploadTask.addOnFailureListener {
-                        //error uploading photo
-                        Toast.makeText(requireContext(), "error uploading photo", Toast.LENGTH_LONG).show()
-                    }.addOnSuccessListener { taskSnapshot ->
-                        Toast.makeText(requireContext(), "Photo upload with success", Toast.LENGTH_LONG)
-                            .show()
-                }
-            }
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            intent.resolveActivity(requireContext().packageManager)
+            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+
         }
 
         binding.buttonDone.setOnClickListener() {
+            val photoName = UUID.randomUUID().toString() + ".jpg"
+
+
             val storage = FirebaseStorage.getInstance()
             val storageRef = storage.reference
+            val baos = ByteArrayOutputStream()
             val photoImagesRef = storageRef.child("eventPhotos/${photoName}")
+            bitmap!!.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+            val data = baos.toByteArray()
+
+            var uploadTask = photoImagesRef.putBytes(data)
+            uploadTask.addOnFailureListener {
+                //error uploading photo
+                Toast.makeText(requireContext(), "error uploading photo", Toast.LENGTH_LONG).show()
+            }.addOnSuccessListener { taskSnapshot ->
+
 
                 val event = hashMapOf(
                     "name" to binding.nameEventsEdit.text.toString(),
@@ -82,16 +81,26 @@ class AddEventFragment : Fragment() {
                     .collection("events").add(event).addOnSuccessListener {
                         findNavController().popBackStack()
                     }
-            }
-        }
 
+                Toast.makeText(requireContext(), "Photo upload with success", Toast.LENGTH_LONG)
+                    .show()
+            }
+
+
+
+
+        }
     }
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             binding.addEventImageView.setImageBitmap(imageBitmap)
             bitmap = imageBitmap
+
+
         }
     }
 
