@@ -98,6 +98,9 @@ class AddEventFragment : Fragment() {
 
         }
 
+
+
+
     private fun sendNotification(messageBody: String) {
         val intent = Intent(requireContext(), MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

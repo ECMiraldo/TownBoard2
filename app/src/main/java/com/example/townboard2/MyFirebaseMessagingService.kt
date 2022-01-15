@@ -51,7 +51,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val token = hashMapOf(
             "token" to token,
         )
-        db.collection("users/${FirebaseAuth.getInstance().uid.toString()}/tokens")
+        db.collection("user/${FirebaseAuth.getInstance().uid.toString()}/tokens")
             .add(token)
     }
 
