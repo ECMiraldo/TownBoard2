@@ -26,6 +26,18 @@
     <action
         android:id="@+id/action_navigation_event_to_AddDetailFragment"
         app:destination="@id/nav_add_detail"/>
+        <argument
+            android:name="descricao"
+            app:argType="string" />
+        <argument
+            android:name="titulo"
+            app:argType="string" />
+        <argument
+            android:name="local"
+            app:argType="string" />
+        <argument
+            android:name="photoName"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -40,10 +52,13 @@
             android:name="descricao"
             app:argType="string" />
         <argument
-            android:name="photoRef"
+            android:name="titulo"
             app:argType="string" />
         <argument
             android:name="local"
+            app:argType="string" />
+        <argument
+            android:name="photoName"
             app:argType="string" />
     </fragment>
 

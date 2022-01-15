@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.townboard2.R
 import com.example.townboard2.databinding.FragmentAddsBinding
@@ -40,13 +41,13 @@ class AddsFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         addList = arrayListOf<Add>()
         addAdapter = AddAdapter(context, addList)
-        binding.addsRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.addsRecyclerView.layoutManager = GridLayoutManager(context,3)
         binding.addsRecyclerView.adapter = addAdapter
 
         db.collection("city").document(cityName!!)
             .collection("adds").get().addOnSuccessListener { result ->
                 for (document in result.documents) {
-                    val name = document.data?.let { it["name"] as String? }
+                    val name = document.data?.let { it["titulo"] as String? }
                     val local = document.data?.let { it["local"] as String? }
                     val description = document.data?.let { it["description"] as String? }
                     val photoName = document.data?.let { it["photoName"] as String? }
@@ -57,10 +58,10 @@ class AddsFragment : Fragment() {
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
 
-
         binding.addAddButton.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_event_to_AddEventFragment)
+            findNavController().navigate(R.id.action_navigation_event_to_AddAddFragment)
         }
+
 
     }
 
