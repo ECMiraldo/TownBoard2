@@ -23,6 +23,9 @@ class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : Recycler
 
     class AddViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val add = itemView.findViewById<CardView>(R.id.addCardView)
+        val card = itemView.findViewById<CardView>(R.id.addCardView).setOnClickListener {
+            createNavigateOnClickListener(R.id.action_navigation_event_to_AddDetailFragment)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddViewHolder {
@@ -42,11 +45,14 @@ class AddAdapter(val context: Context?, val addList: ArrayList<Add> ) : Recycler
         photoImagesRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
             val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
             holder.add.findViewById<ImageView>(R.id.addImageViewCard).setImageBitmap(bitmap)
+            holder.add.findViewById<TextView>(R.id.addTextViewTitle).text = add.name
         }
             .addOnFailureListener{
                 //TODO: CREATE A NEW IMAGE AND PUT IT AS DEFAULT HERE
             }
-
+        holder.add.setOnClickListener {
+            createNavigateOnClickListener("@id/nav_add_detail")
+        }
     }
 
     override fun getItemCount(): Int {
