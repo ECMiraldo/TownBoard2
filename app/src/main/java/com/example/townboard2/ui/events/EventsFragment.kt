@@ -1,20 +1,35 @@
 package com.example.townboard2.ui.events
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
+import android.media.RingtoneManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.townboard2.LoginActivity
+import com.example.townboard2.MainActivity
+import com.example.townboard2.MyFirebaseMessagingService
 import com.example.townboard2.R
 import com.example.townboard2.databinding.FragmentEventsBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -30,6 +45,9 @@ class EventsFragment : Fragment() {
   private lateinit var eventList: ArrayList<Event>
   private lateinit var auth: FirebaseAuth
   val db = Firebase.firestore
+
+
+
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     _binding = FragmentEventsBinding.inflate(inflater, container, false)
@@ -58,6 +76,8 @@ class EventsFragment : Fragment() {
           val description = document.data?.let { it["description"] as String? }
           val photoName = document.data?.let { it["photoName"] as String?}
          eventList.add(Event(name,local,hora,data,description,photoName))
+
+
         }
         eventAdapter.notifyDataSetChanged()
       }.addOnFailureListener() { exception ->
@@ -68,21 +88,24 @@ class EventsFragment : Fragment() {
       findNavController().navigate(R.id.action_navigation_event_to_AddEventFragment)
     }
 
-
-
-
   }
+
+
+
+
 
   override fun onResume() {
     super.onResume()
     eventAdapter.notifyDataSetChanged()
+
+
   }
 
 
 
-
-override fun onDestroyView() {
+  override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
     }
 

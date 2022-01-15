@@ -1,9 +1,7 @@
 package com.example.townboard2.ui.events
 
 import android.R.attr
-import android.app.Activity
 import android.app.Activity.RESULT_OK
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
@@ -29,12 +27,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 import androidx.core.app.ActivityCompat.startActivityForResult
 import android.R.attr.data
-
-
-
-
-
-
+import android.app.*
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.media.RingtoneManager
+import android.os.Build
+import androidx.core.app.NotificationCompat
+import com.example.townboard2.MainActivity
+import com.example.townboard2.MyFirebaseMessagingService
 
 
 class AddEventFragment : Fragment() {
@@ -45,6 +45,9 @@ class AddEventFragment : Fragment() {
     private val binding get() = _binding!!
     val db = Firebase.firestore
     lateinit var imageUri : Uri
+
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -87,14 +90,43 @@ class AddEventFragment : Fragment() {
 
                 Toast.makeText(requireContext(), "Photo upload with success", Toast.LENGTH_LONG)
                     .show()
-            }
 
+                   sendNotification("novo evento")
+            }
 
 
 
         }
 
+    private fun sendNotification(messageBody: String) {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        val pendingIntent = PendingIntent.getActivity(requireContext(), 0 /* Request code */, intent,
+            PendingIntent.FLAG_ONE_SHOT)
 
+        val channelId = getString(R.string.default_notification_channel_id)
+        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val notificationBuilder = NotificationCompat.Builder(requireContext(), channelId)
+            .setSmallIcon(R.drawable.ic_stat_ic_notification)
+            .setContentTitle("Novo evento")
+            .setContentText(messageBody)
+            .setAutoCancel(true)
+            .setSound(defaultSoundUri)
+            .setContentIntent(pendingIntent)
+
+
+        val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        // Since android Oreo notification channel is needed.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(channelId,
+                "Channel human readable title",
+                NotificationManager.IMPORTANCE_DEFAULT)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

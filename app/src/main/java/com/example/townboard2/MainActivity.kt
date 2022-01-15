@@ -1,20 +1,27 @@
 package com.example.townboard2
 
+import android.content.BroadcastReceiver
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.townboard2.adapters.CityAdapter
 import com.example.townboard2.datatypes.City
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +31,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter : CityAdapter
     private lateinit var auth : FirebaseAuth
 
+    var notificationReceiver : NotificationReceiver? = null
 
+
+    inner class NotificationReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            intent?.extras?.getString(MyFirebaseMessagingService.NOTIFICATION_MESSAGE)?.let {
+                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +75,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
 
 
+        notificationReceiver = NotificationReceiver()
+        this.registerReceiver(notificationReceiver, IntentFilter(MyFirebaseMessagingService.BROADCAST_NET_NOTIFICATION))
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        notificationReceiver?.let {
+            this.unregisterReceiver(it)
+        }
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
