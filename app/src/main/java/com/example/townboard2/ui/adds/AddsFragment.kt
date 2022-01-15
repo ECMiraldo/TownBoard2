@@ -58,10 +58,6 @@ class AddsFragment : Fragment() {
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
 
-        binding.addsRecyclerView.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_event_to_AddDetailFragment)
-        }
-
         binding.addAddButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_event_to_AddAddFragment)
         }

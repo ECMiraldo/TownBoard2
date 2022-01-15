@@ -52,7 +52,7 @@
             android:name="descricao"
             app:argType="string" />
         <argument
-            android:name="photoRef"
+            android:name="titulo"
             app:argType="string" />
         <argument
             android:name="local"
