@@ -35,7 +35,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 class EventsFragment : Fragment() {
-  var evento1 = Event("name1", "local1", "hora1","15/02/2022","aaaaaaaaaaaaaaaaaaaaaaaaaaa", "4c9j7m3u-900.jpg")
+
   private var _binding: FragmentEventsBinding? = null
   // This property is only valid between onCreateView and
   // onDestroyView.
@@ -62,7 +62,6 @@ class EventsFragment : Fragment() {
 
     auth = FirebaseAuth.getInstance()
     eventList = arrayListOf<Event>()
-    eventList.add(evento1)
     eventAdapter = EventAdapter()
     _binding?.eventListView?.adapter = eventAdapter
 
