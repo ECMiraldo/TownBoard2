@@ -4,11 +4,11 @@ import com.google.firebase.Timestamp
 import java.util.*
 
 class Message {
-    var message : String? = null
-    var senderUID : String? = null
-    var senderName :String? = null
-    var date : String? = null
-    var hour: String? = null
+    var message    :  String? = null
+    var senderUID  :  String? = null
+    var senderName :  String? = null
+    var date       :  String? = null
+    var hour       :  String? = null
     constructor(){}
 
     constructor(

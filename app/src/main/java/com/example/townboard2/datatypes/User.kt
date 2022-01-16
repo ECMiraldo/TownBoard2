@@ -1,9 +1,9 @@
 package com.example.townboard2.datatypes
 
 class User {
-    var name : String? = null
-    var email : String? = null
-    var uID : String? = null
+    var name:  String? = null
+    var email: String? = null
+    var uID:   String? = null
 
     constructor(){}
 
