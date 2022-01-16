@@ -49,6 +49,7 @@ class AddEventFragment : Fragment() {
 
 
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         _binding = FragmentAddEventBinding.inflate(inflater, container, false)
@@ -70,17 +71,22 @@ class AddEventFragment : Fragment() {
 
         binding.buttonDone.setOnClickListener() {
             val photoName = "$imageUri.jpg"
+            val nome = binding.nameEventsEdit.text.toString()
+            val hora = binding.horaEventEdit.text.toString()
+            val data = binding.dataEventEdit.text.toString()
+            val local = binding.localEventEdit.text.toString()
+            val descricao = binding.descriptionEventsEdit.text.toString()
             val storage = FirebaseStorage.getInstance()
             val storageRef = storage.reference
             val photoImagesRef = storageRef.child("eventPhotos/${photoName}")
             photoImagesRef.putFile(imageUri)
 
                 val event = hashMapOf(
-                    "name" to binding.nameEventsEdit.text.toString(),
-                    "hora" to binding.horaEventEdit.text.toString(),
-                    "data" to binding.dataEventEdit.text.toString(),
-                    "local" to binding.localEventEdit.text.toString(),
-                    "description" to binding.descriptionEventsEdit.text.toString(),
+                    "name" to nome,
+                    "hora" to hora,
+                    "data" to data,
+                    "local" to local,
+                    "description" to descricao,
                     "photoName" to photoName
                 )
                 db.collection("city").document(cityName!!)
@@ -91,7 +97,8 @@ class AddEventFragment : Fragment() {
                 Toast.makeText(requireContext(), "Photo upload with success", Toast.LENGTH_LONG)
                     .show()
 
-                   sendNotification("novo evento")
+
+                   sendNotification("$nome - $hora - $data - $local - $descricao")
             }
 
 
@@ -111,7 +118,7 @@ class AddEventFragment : Fragment() {
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(requireContext(), channelId)
             .setSmallIcon(R.drawable.ic_stat_ic_notification)
-            .setContentTitle("Novo evento")
+            .setContentTitle("Novo evento na cidade")
             .setContentText(messageBody)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)

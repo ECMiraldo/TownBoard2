@@ -41,8 +41,6 @@ class MessageAdapter(val context : Context?, val messageList : ArrayList<Message
             holder.horaMessage.text = currentMessage.hour.toString()
 
 
-
-
         } else {
             //do stuff for receive view holder
             val viewHolder = holder as ReceivedViewHolder

@@ -31,16 +31,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter : CityAdapter
     private lateinit var auth : FirebaseAuth
 
-    var notificationReceiver : NotificationReceiver? = null
 
 
-    inner class NotificationReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            intent?.extras?.getString(MyFirebaseMessagingService.NOTIFICATION_MESSAGE)?.let {
-                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+
+
     val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,17 +73,13 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
 
-        notificationReceiver = NotificationReceiver()
-        this.registerReceiver(notificationReceiver, IntentFilter(MyFirebaseMessagingService.BROADCAST_NET_NOTIFICATION))
 
     }
 
     override fun onPause() {
         super.onPause()
 
-        notificationReceiver?.let {
-            this.unregisterReceiver(it)
-        }
+
 
     }
 

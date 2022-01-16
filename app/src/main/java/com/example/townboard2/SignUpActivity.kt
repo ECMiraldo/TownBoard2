@@ -64,7 +64,7 @@ class SignUpActivity : AppCompatActivity() {
                     finish()
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this@SignUpActivity, "Insira informaão corretos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUpActivity, "Insira informacão válida", Toast.LENGTH_SHORT).show()
                 }
             }
     }
