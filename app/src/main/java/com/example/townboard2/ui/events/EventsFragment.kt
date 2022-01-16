@@ -35,6 +35,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 class EventsFragment : Fragment() {
+
   private var _binding: FragmentEventsBinding? = null
   // This property is only valid between onCreateView and
   // onDestroyView.
