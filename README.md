@@ -131,7 +131,7 @@ Para criar este fragmento utilizamos uma RecyclerView. Mas quisemos ir mais long
 
 ![Notifications](https://github.com/ECMiraldo/TownBoard2/blob/main/notifications.png?raw=true)
 
-	O firebase dispõe de um sistema de cloud Messaging para o envio de notificações para os utilizadores. Para que haja ligação entre a aplicação e esse sistema, é obrigatório adicionar os comandos do serviço no AndroidManisfest (MyFirebaseMessagingService). É possível enviar uma notificação manualmente pela própria firebase, preenchendo o assunto, texto e uma data específica, portanto o que fizemos foi apenas criar uma função que preenchesse esses campos com a informação sobre de um evento acabado de criar. 
+O firebase dispõe de um sistema de cloud Messaging para o envio de notificações para os utilizadores. Para que haja ligação entre a aplicação e esse sistema, é obrigatório adicionar os comandos do serviço no AndroidManisfest (MyFirebaseMessagingService). É possível enviar uma notificação manualmente pela própria firebase, preenchendo o assunto, texto e uma data específica, portanto o que fizemos foi apenas criar uma função que preenchesse esses campos com a informação sobre de um evento acabado de criar. 
 
 
 
